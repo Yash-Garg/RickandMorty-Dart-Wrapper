@@ -1,4 +1,4 @@
-import '../enums.dart';
+import '../../enums.dart';
 
 class CharacterParameters {
   final List<int> ids;

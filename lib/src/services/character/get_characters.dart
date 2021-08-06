@@ -1,8 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:rick_and_morty_api/src/constants.dart';
-import 'package:rick_and_morty_api/src/models/all_characters.dart';
 
-class CharactersClass {
+import '../../constants.dart';
+import '../../models/all_characters.dart';
+
+class CharacterService {
   static final Dio _dio = Dio();
 
   Future<AllCharacters> getAllCharacters() async {
