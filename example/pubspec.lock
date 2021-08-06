@@ -112,7 +112,7 @@ packages:
   rick_and_morty_api:
     dependency: "direct main"
     description:
-      path: "../rick-and-morty-dart-api"
+      path: ".."
       relative: true
     source: path
     version: "0.0.1"

@@ -13,6 +13,7 @@
 *.iml
 *.ipr
 *.iws
+.idea/
 
 # Flutter/Dart/Pub related
 **/doc/api/
