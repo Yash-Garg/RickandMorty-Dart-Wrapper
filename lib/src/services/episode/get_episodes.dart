@@ -6,11 +6,11 @@ import '../../constants.dart';
 class EpisodeService {
   static final Dio _dio = Dio();
 
-  Future getAllCharacters() async {
+  Future<AllEpisodes> getAllEpisodes() async {
     try {
       print('Fetching episodes...');
       var response =
-          await _dio.get(Constants.baseURL + Constants.characterEndpoint);
+          await _dio.get('${Constants.baseURL}${Constants.episodeEndpoint}');
 
       return AllEpisodes.fromJson(response.data);
     } on DioError {
