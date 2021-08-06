@@ -5,27 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6a4a601-c659-45ed-af75-b698b6157a6c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/saveactions_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/rm_client.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/constants.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/enums.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/episode/ch_parameters.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/episode/get_characters.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/models/all_characters.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/models/character.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/models/episode.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/src/models/location.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/main_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/test/main_test.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/constants.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/constants.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
