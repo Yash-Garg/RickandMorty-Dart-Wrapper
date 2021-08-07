@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty_api/rm_client.dart';
+import 'package:rick_and_morty_api/rick_and_morty_api.dart';
 
 import '../globals.dart';
 

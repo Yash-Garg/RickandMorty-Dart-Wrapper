@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-import '../../../rm_client.dart';
+import '../../../rick_and_morty_api.dart';
 import '../../constants.dart';
 import '../../models/all_locations.dart';
 import '../../models/location.dart';

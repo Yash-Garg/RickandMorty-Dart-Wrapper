@@ -1,14 +1,23 @@
-# rick-and-morty-dart-api
+# The Rick and Morty API Dart Wrapper
 
-A new Flutter package project.
+This is a Dart wrapper to use the [The Rick and Morty API](https://rickandmortyapi.com)
 
-## Getting Started
+**To get started check the documentation on [rickandmortyapi.com](https://rickandmortyapi.com/documentation)**
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+## Basic Usage
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```dart
+import 'package:rick_and_morty_api/rick_and_morty_api.dart';
+
+var episodeService = EpisodeService();
+
+// This function will print all episodes on page 1
+void allEpisodes() async {
+    AllEpisodes episodes = await episodeClass.getAllEpisodes();
+    print(episodes);
+}
+```
+
+## Complete Usage
+
+The complete usage is in the [example directory](https://github.com/Yash-Garg/RickandMorty-Dart-Wrapper/tree/main/example)
