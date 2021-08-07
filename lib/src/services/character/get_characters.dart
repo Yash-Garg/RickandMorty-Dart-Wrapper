@@ -21,7 +21,7 @@ class CharacterService {
     }
   }
 
-  Future<List<Character>> getMultipleCharacters(List<int> ids) async {
+  Future<List<Character>> getListOfCharacters(List<int> ids) async {
     try {
       var response = await _dio
           .get('${Constants.baseURL}${Constants.characterEndpoint}/$ids');

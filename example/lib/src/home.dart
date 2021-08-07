@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:rick_and_morty_api/rm_client.dart';
+import 'package:test_rm_api/src/views/filtered_eps_list.dart';
+
+import 'views/all_chars_list.dart';
+import 'views/all_eps_list.dart';
+import 'views/filtered_chars_list.dart';
+import 'views/specified_chars_list.dart';
+import 'views/specified_eps_list.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -8,15 +14,14 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-var charactersClass = CharacterService();
-var episodeClass = EpisodeService();
-
-final _tabs = ['CHARACTER', 'EPISODES', 'FILTERED CHARACTERS'];
-var _filters = CharacterFilters(
-  name: 'Rick',
-  gender: CharacterGender.male,
-  status: CharacterStatus.alive,
-);
+final _tabs = [
+  'CHARACTER',
+  'FILTERED CHARACTERS',
+  'SPECIFIED CHARACTERS',
+  'EPISODES',
+  'FILTERED EPISODES',
+  'SPECIFIED EPISODES',
+];
 
 class _HomePageState extends State<HomePage> {
   @override
@@ -37,102 +42,14 @@ class _HomePageState extends State<HomePage> {
         body: TabBarView(
           children: [
             CharacterListView(),
-            EpisodeListView(),
             FilteredCharacterListView(),
+            SpecifiedCharacterListView(),
+            EpisodeListView(),
+            FilteredEpisodeListView(),
+            SpecifiedEpisodeListView(),
           ],
         ),
       ),
-    );
-  }
-}
-
-class EpisodeListView extends StatelessWidget {
-  const EpisodeListView({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder<AllEpisodes>(
-      future: episodeClass.getAllEpisodes(),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CircularProgressIndicator());
-        } else if (snapshot.hasError || snapshot.data == null) {
-          return Center(child: Text('Error Loading Data.'));
-        } else {
-          var episodes = snapshot.data!.results;
-          return ListView.builder(
-            itemCount: episodes.length,
-            itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(episodes[index].name),
-                subtitle: Text('Index Number - ${index + 1}'),
-              );
-            },
-          );
-        }
-      },
-    );
-  }
-}
-
-class CharacterListView extends StatelessWidget {
-  const CharacterListView({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder<AllCharacters>(
-      future: charactersClass.getAllCharacters(),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CircularProgressIndicator());
-        } else if (snapshot.hasError || snapshot.data == null) {
-          return Center(child: Text('Error Loading Data.'));
-        } else {
-          var characters = snapshot.data!.results;
-          return ListView.builder(
-            itemCount: characters.length,
-            itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(characters[index].name),
-                subtitle: Text('Index Number - ${index + 1}'),
-              );
-            },
-          );
-        }
-      },
-    );
-  }
-}
-
-class FilteredCharacterListView extends StatelessWidget {
-  const FilteredCharacterListView({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder<AllCharacters>(
-      future: charactersClass.getFilteredCharacters(_filters),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CircularProgressIndicator());
-        } else if (snapshot.hasError || snapshot.data == null) {
-          return Center(child: Text('Error Loading Data.'));
-        } else {
-          var characters = snapshot.data!.results;
-          return ListView.builder(
-            itemCount: characters.length,
-            itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(characters[index].name),
-                subtitle: Text('Index Number - ${index + 1}'),
-              );
-            },
-          );
-        }
-      },
     );
   }
 }

@@ -1,6 +1,6 @@
 class EpisodeFilters {
-  final List<int> ids;
   final String? name;
+  final String? episode;
 
-  EpisodeFilters({required this.ids, this.name});
+  EpisodeFilters({this.episode = '', this.name = ''});
 }
