@@ -11,10 +11,12 @@ import 'package:rick_and_morty_api/rick_and_morty_api.dart';
 
 var episodeService = EpisodeService();
 
-// This function will print all episodes on page 1
+// This function will print all episode names on page 1
 void allEpisodes() async {
-    AllEpisodes episodes = await episodeClass.getAllEpisodes();
-    print(episodes);
+  AllEpisodes episodes = await episodeClass.getAllEpisodes();
+  for (Episode ep in episodes.results) {
+    print(ep.name);
+  }
 }
 ```
 
