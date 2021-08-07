@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:rick_and_morty_api/src/services/location/lc_filters.dart';
 
 import '../../../rm_client.dart';
 import '../../constants.dart';
 import '../../models/all_locations.dart';
 import '../../models/location.dart';
+import 'lc_filters.dart';
 
 class LocationService {
   static final Dio _dio = Dio();

@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:rick_and_morty_api/src/enums.dart';
 
 import '../../../rm_client.dart';
 import '../../constants.dart';
+import '../../enums.dart';
 import '../../models/all_characters.dart';
 import '../../models/character.dart';
 

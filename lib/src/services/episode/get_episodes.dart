@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:rick_and_morty_api/src/models/all_episodes.dart';
-import 'package:rick_and_morty_api/src/models/episode.dart';
-import 'package:rick_and_morty_api/src/services/episode/ep_filters.dart';
 
 import '../../constants.dart';
+import '../../models/all_episodes.dart';
+import '../../models/episode.dart';
+import 'ep_filters.dart';
 
 class EpisodeService {
   static final Dio _dio = Dio();

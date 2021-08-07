@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:test_rm_api/src/views/specified_locations_list.dart';
 
 import 'views/all_chars_list.dart';
 import 'views/all_eps_list.dart';
@@ -9,6 +8,7 @@ import 'views/filtered_eps_list.dart';
 import 'views/filtered_locations_list.dart';
 import 'views/specified_chars_list.dart';
 import 'views/specified_eps_list.dart';
+import 'views/specified_locations_list.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
