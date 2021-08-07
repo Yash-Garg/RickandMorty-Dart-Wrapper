@@ -3,20 +3,17 @@ import 'package:rick_and_morty_api/rm_client.dart';
 
 import '../globals.dart';
 
-var _filters = EpisodeFilters(
-  name: 'Morty',
-  episode: 'S04',
-);
+var _filters = LocationFilters(name: 'r');
 
-class FilteredEpisodeListView extends StatelessWidget {
-  const FilteredEpisodeListView({
+class FilteredLocationListView extends StatelessWidget {
+  const FilteredLocationListView({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<AllEpisodes>(
-      future: episodeClass.getFilteredEpisodes(_filters),
+    return FutureBuilder<AllLocations>(
+      future: locationClass.getFilteredLocations(_filters),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(child: CircularProgressIndicator());

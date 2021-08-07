@@ -10,7 +10,6 @@ class EpisodeService {
 
   Future<AllEpisodes> getAllEpisodes() async {
     try {
-      print('Fetching episodes...');
       var response =
           await _dio.get('${Constants.baseURL}${Constants.episodeEndpoint}');
 

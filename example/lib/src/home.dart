@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:test_rm_api/src/views/filtered_eps_list.dart';
+import 'package:test_rm_api/src/views/specified_locations_list.dart';
 
 import 'views/all_chars_list.dart';
 import 'views/all_eps_list.dart';
+import 'views/all_locations_list.dart';
 import 'views/filtered_chars_list.dart';
+import 'views/filtered_eps_list.dart';
+import 'views/filtered_locations_list.dart';
 import 'views/specified_chars_list.dart';
 import 'views/specified_eps_list.dart';
 
@@ -16,11 +19,14 @@ class HomePage extends StatefulWidget {
 
 final _tabs = [
   'CHARACTER',
-  'FILTERED CHARACTERS',
-  'SPECIFIED CHARACTERS',
   'EPISODES',
+  'LOCATIONS',
+  'FILTERED CHARACTERS',
   'FILTERED EPISODES',
+  'FILTERED LOCATIONS',
+  'SPECIFIED CHARACTERS',
   'SPECIFIED EPISODES',
+  'SPECIFIED LOCATIONS',
 ];
 
 class _HomePageState extends State<HomePage> {
@@ -42,11 +48,14 @@ class _HomePageState extends State<HomePage> {
         body: TabBarView(
           children: [
             CharacterListView(),
-            FilteredCharacterListView(),
-            SpecifiedCharacterListView(),
             EpisodeListView(),
+            LocationListView(),
+            FilteredCharacterListView(),
             FilteredEpisodeListView(),
+            FilteredLocationListView(),
+            SpecifiedCharacterListView(),
             SpecifiedEpisodeListView(),
+            SpecifiedLocationListView(),
           ],
         ),
       ),

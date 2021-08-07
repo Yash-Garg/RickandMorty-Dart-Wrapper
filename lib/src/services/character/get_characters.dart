@@ -11,7 +11,6 @@ class CharacterService {
 
   Future<AllCharacters> getAllCharacters() async {
     try {
-      print('Fetching characters...');
       var response =
           await _dio.get('${Constants.baseURL}${Constants.characterEndpoint}');
 

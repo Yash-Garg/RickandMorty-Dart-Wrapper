@@ -3,32 +3,25 @@ import 'package:rick_and_morty_api/rm_client.dart';
 
 import '../globals.dart';
 
-var _filters = EpisodeFilters(
-  name: 'Morty',
-  episode: 'S04',
-);
-
-class FilteredEpisodeListView extends StatelessWidget {
-  const FilteredEpisodeListView({
-    Key? key,
-  }) : super(key: key);
+class LocationListView extends StatelessWidget {
+  const LocationListView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<AllEpisodes>(
-      future: episodeClass.getFilteredEpisodes(_filters),
+    return FutureBuilder<AllLocations>(
+      future: locationClass.getAllLocations(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(child: CircularProgressIndicator());
         } else if (snapshot.hasError || snapshot.data == null) {
           return Center(child: Text('Error Loading Data.'));
         } else {
-          var episodes = snapshot.data!.results;
+          var locations = snapshot.data!.results;
           return ListView.builder(
-            itemCount: episodes.length,
+            itemCount: locations.length,
             itemBuilder: (context, index) {
               return ListTile(
-                title: Text(episodes[index].name),
+                title: Text(locations[index].name),
                 subtitle: Text('Index Number - ${index + 1}'),
               );
             },
