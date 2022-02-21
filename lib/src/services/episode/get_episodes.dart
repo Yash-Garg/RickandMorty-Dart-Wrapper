@@ -1,44 +1,29 @@
-import 'package:dio/dio.dart';
-
 import '../../constants.dart';
-import '../../models/all_episodes.dart';
+import '../entities/get_entities.dart';
 import '../../models/episode.dart';
 import 'ep_filters.dart';
 
-class EpisodeService {
-  static final Dio _dio = Dio();
+class EpisodeService extends GetEntitiesService {
+  Future<List<Episode>> getAllEpisodes() async {
+    List<Map<String, dynamic>> objects = await super
+        .getAllEntities('${Constants.baseURL}${Constants.episodeEndpoint}');
 
-  Future<AllEpisodes> getAllEpisodes() async {
-    try {
-      var response =
-          await _dio.get('${Constants.baseURL}${Constants.episodeEndpoint}');
-
-      return AllEpisodes.fromJson(response.data);
-    } on DioError {
-      rethrow;
-    }
+    return List<Episode>.from(objects.map((x) => Episode.fromJson(x)));
   }
 
   Future<List<Episode>> getListOfEpisodes(List<int> ids) async {
-    try {
-      var response = await _dio
-          .get('${Constants.baseURL}${Constants.episodeEndpoint}/$ids');
-      return List<Episode>.from(
-        response.data.map((i) => Episode.fromJson(i)),
-      );
-    } on DioError {
-      rethrow;
-    }
+    List<Map<String, dynamic>> objects = await super.getAllEntities(
+        '${Constants.baseURL}${Constants.episodeEndpoint}/$ids');
+
+    return List<Episode>.from(objects.map((x) => Episode.fromJson(x)));
   }
 
-  Future<AllEpisodes> getFilteredEpisodes(EpisodeFilters filters) async {
-    try {
-      var prefs = '?name=${filters.name}&episode=${filters.episode}';
-      var response = await _dio
-          .get('${Constants.baseURL}${Constants.episodeEndpoint}$prefs');
-      return AllEpisodes.fromJson(response.data);
-    } on DioError {
-      rethrow;
-    }
+  Future<List<Episode>> getFilteredEpisodes(EpisodeFilters filters) async {
+    var prefs = '?name=${filters.name}&episode=${filters.episode}';
+
+    List<Map<String, dynamic>> objects = await super.getAllEntities(
+        '${Constants.baseURL}${Constants.episodeEndpoint}$prefs');
+
+    return List<Episode>.from(objects.map((x) => Episode.fromJson(x)));
   }
 }

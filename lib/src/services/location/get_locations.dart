@@ -1,46 +1,28 @@
-import 'package:dio/dio.dart';
-
 import '../../../rick_and_morty_api.dart';
-import '../../constants.dart';
-import '../../models/all_locations.dart';
-import '../../models/location.dart';
-import 'lc_filters.dart';
+import '../entities/get_entities.dart';
 
-class LocationService {
-  static final Dio _dio = Dio();
+class LocationService extends GetEntitiesService {
+  Future<List<Location>> getAllLocations() async {
+    List<Map<String, dynamic>> objects = await super
+        .getAllEntities('${Constants.baseURL}${Constants.locationEndpoint}');
 
-  Future<AllLocations> getAllLocations() async {
-    try {
-      var response =
-          await _dio.get('${Constants.baseURL}${Constants.locationEndpoint}');
-
-      return AllLocations.fromJson(response.data);
-    } on DioError {
-      rethrow;
-    }
+    return List<Location>.from(objects.map((x) => Location.fromJson(x)));
   }
 
   Future<List<Location>> getListOfLocations(List<int> ids) async {
-    try {
-      var response = await _dio
-          .get('${Constants.baseURL}${Constants.locationEndpoint}/$ids');
-      return List<Location>.from(
-        response.data.map((i) => Location.fromJson(i)),
-      );
-    } on DioError {
-      rethrow;
-    }
+    List<Map<String, dynamic>> objects = await super.getAllEntities(
+        '${Constants.baseURL}${Constants.locationEndpoint}/$ids');
+
+    return List<Location>.from(objects.map((x) => Location.fromJson(x)));
   }
 
-  Future<AllLocations> getFilteredLocations(LocationFilters filters) async {
-    try {
-      var prefs =
-          '?name=${filters.name}&type=${filters.type}&dimension=${filters.dimension}';
-      var response = await _dio
-          .get('${Constants.baseURL}${Constants.locationEndpoint}$prefs');
-      return AllLocations.fromJson(response.data);
-    } on DioError {
-      rethrow;
-    }
+  Future<List<Location>> getFilteredLocations(LocationFilters filters) async {
+    var prefs =
+        '?name=${filters.name}&type=${filters.type}&dimension=${filters.dimension}';
+
+    List<Map<String, dynamic>> objects = await super.getAllEntities(
+        '${Constants.baseURL}${Constants.locationEndpoint}$prefs');
+
+    return List<Location>.from(objects.map((x) => Location.fromJson(x)));
   }
 }
