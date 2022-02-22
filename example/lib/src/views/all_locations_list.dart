@@ -8,7 +8,7 @@ class LocationListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<AllLocations>(
+    return FutureBuilder<List<Location>>(
       future: locationClass.getAllLocations(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
@@ -16,7 +16,7 @@ class LocationListView extends StatelessWidget {
         } else if (snapshot.hasError || snapshot.data == null) {
           return Center(child: Text('Error Loading Data.'));
         } else {
-          var locations = snapshot.data!.results;
+          var locations = snapshot.data!;
           return ListView.builder(
             itemCount: locations.length,
             itemBuilder: (context, index) {
