@@ -10,7 +10,7 @@ class CharacterListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<AllCharacters>(
+    return FutureBuilder<List<Character>>(
       future: charactersClass.getAllCharacters(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
@@ -18,7 +18,7 @@ class CharacterListView extends StatelessWidget {
         } else if (snapshot.hasError || snapshot.data == null) {
           return Center(child: Text('Error Loading Data.'));
         } else {
-          var characters = snapshot.data!.results;
+          var characters = snapshot.data!;
           return ListView.builder(
             itemCount: characters.length,
             itemBuilder: (context, index) {

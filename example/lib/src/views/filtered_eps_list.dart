@@ -15,7 +15,7 @@ class FilteredEpisodeListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<AllEpisodes>(
+    return FutureBuilder<List<Episode>>(
       future: episodeClass.getFilteredEpisodes(_filters),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
@@ -23,7 +23,7 @@ class FilteredEpisodeListView extends StatelessWidget {
         } else if (snapshot.hasError || snapshot.data == null) {
           return Center(child: Text('Error Loading Data.'));
         } else {
-          var episodes = snapshot.data!.results;
+          var episodes = snapshot.data!;
           return ListView.builder(
             itemCount: episodes.length,
             itemBuilder: (context, index) {
