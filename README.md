@@ -9,13 +9,13 @@ This is a Dart wrapper to use the [The Rick and Morty API](https://rickandmortya
 ```dart
 import 'package:rick_and_morty_api/rick_and_morty_api.dart';
 
-var episodeService = EpisodeService();
+final episodeService = EpisodeService();
 
-// This function will print all episode names on page 1
+// This function will print all episode names
 void allEpisodes() async {
-  AllEpisodes episodes = await episodeClass.getAllEpisodes();
-  for (Episode ep in episodes.results) {
-    print(ep.name);
+  List<Episode> episodes = await episodeService.getAllEpisodes();
+  for (final episode in episodes) {
+    debugPrint(episode.name);
   }
 }
 ```

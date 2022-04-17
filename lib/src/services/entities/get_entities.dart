@@ -14,7 +14,7 @@ abstract class GetEntitiesService {
         try {
           var dataInfo = response.data["info"];
           // So, we have info object and pagination
-          Info info = await Info.fromJson(response.data["info"]);
+          Info info = Info.fromJson(response.data["info"]);
           nextUrl = info.next;
           allEntities.addAll(
               List<Map<String, dynamic>>.from(response.data["results"]));
