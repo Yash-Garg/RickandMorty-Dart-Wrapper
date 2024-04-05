@@ -14,7 +14,7 @@ abstract class GetEntitiesService {
         try {
           var dataInfo = response.data["info"];
           // So, we have info object and pagination
-          Info info = Info.fromJson(response.data["info"]);
+          Info info = Info.fromJson(dataInfo);
           nextUrl = info.next;
           allEntities.addAll(
               List<Map<String, dynamic>>.from(response.data["results"]));
@@ -26,7 +26,7 @@ abstract class GetEntitiesService {
       }
 
       return allEntities;
-    } on DioError {
+    } on DioException {
       rethrow;
     }
   }
