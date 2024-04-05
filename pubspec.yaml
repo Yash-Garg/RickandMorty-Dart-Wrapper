@@ -1,6 +1,6 @@
 name: rick_and_morty_api
 description: Dart wrapper for The Rick and Morty API
-version: 0.1.2
+version: 0.1.3
 homepage: https://github.com/Yash-Garg/RickandMorty-Dart-Wrapper
 
 environment:
